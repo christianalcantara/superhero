@@ -2,6 +2,7 @@ aniso8601==8.1.1
 asgiref==3.3.1
 Django==3.1.6
 django-environ==0.4.5
+django-filter==2.4.0
 -e git+https://github.com/rasheedhamdawi/django-graphql-jwt.git@0b31a924a759c3dbb47ece83d7102d3ca92cd900#egg=django_graphql_jwt
 graphene==3.0b7
 graphene-django==3.0.0b7
