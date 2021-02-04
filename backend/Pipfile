@@ -5,8 +5,13 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-environ = "*"
+psycopg2 = "*"
+graphene-django = "*"
+django-graphql-jwt = {editable = true, git = "https://github.com/rasheedhamdawi/django-graphql-jwt.git"}
+pillow = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
