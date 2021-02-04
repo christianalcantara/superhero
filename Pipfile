@@ -7,10 +7,9 @@ name = "pypi"
 django = "*"
 django-environ = "*"
 psycopg2 = "*"
-graphene-django = "*"
-django-graphql-jwt = {editable = true, git = "https://github.com/rasheedhamdawi/django-graphql-jwt.git"}
+graphene-django = ">=3.0.0b1"
 pillow = "*"
-gunicorn = "*"
+django-graphql-jwt = {editable = true, git = "https://github.com/rasheedhamdawi/django-graphql-jwt.git"}
 
 [dev-packages]
 
