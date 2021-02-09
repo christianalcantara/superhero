@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
+from django.conf import settings
 
 User = get_user_model()
 
@@ -16,7 +17,8 @@ class Character(models.Model):
     )
     name = models.CharField(
         verbose_name=_('Name'),
-        max_length=100
+        max_length=100, unique=True,
+        db_index=True
     )
     description = models.TextField(
         verbose_name=_('Description'),
@@ -24,15 +26,22 @@ class Character(models.Model):
     )
     thumbnail = models.ImageField(
         verbose_name=_('Image Thumbnail'),
-        upload_to='character'
+        upload_to='character', null=True
     )
 
     class Meta:
         verbose_name = _('Character')
         verbose_name_plural = _('Characters')
+        ordering = ('created',)
 
     def __str__(self):
         return self.name
+
+    @property
+    def thumb_url(self):
+        domain = settings.DOMAIN
+        media_url = settings.MEDIA_URL
+        return f'//{domain}{media_url}{self.thumbnail}'
 
 
 class Favorite(models.Model):
