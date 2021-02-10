@@ -42,6 +42,24 @@ class UpdateCharacter(graphene.Mutation):
         return UpdateCharacter(character=character)
 
 
+class UploadMutation(graphene.Mutation):
+    class Arguments:
+        pk = graphene.String(required=True)
+        file = Upload(required=True)
+
+    success = graphene.Boolean()
+
+    def mutate(self, info, pk, file, **kwargs):
+        # do something with your file
+        print('UPLOAD', file)
+        print('UPLOAD', type(file))
+        character = Character.objects.get(id=pk)
+        character.thumbnail = file
+        character.save()
+        return UploadMutation(success=True)
+
+
 class CharacterMutation(graphene.ObjectType):
     create_character = CreateCharacter.Field()
     update_character = UpdateCharacter.Field()
+    upload_thumbnail = UploadMutation.Field()

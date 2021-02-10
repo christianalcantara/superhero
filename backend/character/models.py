@@ -17,7 +17,7 @@ class Character(models.Model):
     )
     name = models.CharField(
         verbose_name=_('Name'),
-        max_length=100, unique=True,
+        max_length=40, unique=True,
         db_index=True
     )
     description = models.TextField(
@@ -32,7 +32,7 @@ class Character(models.Model):
     class Meta:
         verbose_name = _('Character')
         verbose_name_plural = _('Characters')
-        ordering = ('created',)
+        ordering = ('-created',)
 
     def __str__(self):
         return self.name
