@@ -50,6 +50,7 @@ Graphql Playground:
 
 Frontend
 --------
+ - [repository](https://github.com/christianalcantara/vue-graphql-frontend)
  - [demo](https://superherofront.herokuapp.com/)
 
 <p align="center">
