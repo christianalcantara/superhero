@@ -54,5 +54,5 @@ Frontend
  - [demo](https://superherofront.herokuapp.com/)
 
 <p align="center">
-  <img src="https://i.imgur.com/coG1QwX.png" />
+  <img src="https://i.imgur.com/vgFIAaH.png" />
 </p>
