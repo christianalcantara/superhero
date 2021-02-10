@@ -35,9 +35,15 @@ Django:
     $ ./manage.py runserver
 
 Django Admin URL:
+-----------------
+ - [http://localhost:8000/admin](http://localhost:8000/admin)
+ - [demo](https://superheroback.herokuapp.com/admin)
 
- [http://localhost:8000/admin](http://localhost:8000/admin)
+ `Username: super`
+
+ `Password: hero`
 
 Graphql Playground:
-
- [http://localhost:8000/graphql](http://localhost:8000/graphql)
+-------------------
+ - [http://localhost:8000/graphql](http://localhost:8000/graphql)
+ - [demo](https://superheroback.herokuapp.com/graphql)
