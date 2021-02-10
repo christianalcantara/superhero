@@ -22,3 +22,22 @@ Clone `superhero`:
     $ git clone https://github.com/christianalcantara/superhero.git
 
 Create enviroment:
+
+    $ cd superhero
+    $ virtualenv venv
+    $ pip install -r requirements.txt
+
+Django:
+
+    $ chmod +x manage.py
+    $ ./manage.py migrate
+    $ ./manage.py createsuperuser
+    $ ./manage.py runserver
+
+Django Admin URL:
+
+ [http://localhost:8000/admin](http://localhost:8000/admin)
+
+Graphql Playground:
+
+ [http://localhost:8000/graphql](http://localhost:8000/graphql)
