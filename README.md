@@ -9,7 +9,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/christianalcantara/book_backend">
+  <a href="https://github.com/christianalcantara/superhero">
     <img src="docs/images/django-logo.png" alt="Logo" height="80">
   </a>
 </p>
@@ -57,7 +57,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://book-backend-rest.herokuapp.com/)
+[![Product Name Screen Shot][product-screenshot]](https://superheroback.herokuapp.com/graphql)
 
 - Modern Python development with Python 3.8+
 - Bleeding edge Django 3.0+
