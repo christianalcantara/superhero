@@ -86,12 +86,6 @@ Use Heroku button to deploy
 
 ### Installation
 
-<p align="center">
-
-[![asciicast](https://asciinema.org/a/Q1GGnI1ZfcT5WJxCCvBBoiobN.svg)](https://asciinema.org/a/Q1GGnI1ZfcT5WJxCCvBBoiobN)
-
-</p>
-
 1. Clone the repo
 
    ```bash
