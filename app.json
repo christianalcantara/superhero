@@ -1,0 +1,32 @@
+{
+  "name": "Django Graphql",
+  "description": "A Django example to use Graphql",
+  "repository": "https://github.com/christianalcantara/superhero",
+  "website": "https://github.com/christianalcantara/superhero/",
+  "logo": "https://i2.wp.com/www.opengis.ch/wp-content/uploads/2020/04/django-python-logo-e1588009010920.png?resize=100%2C100&ssl=1",
+  "keywords": ["python", "django" ],
+  "env": {
+    "DEBUG": "False",
+    "DEBUG_COLLECTSTATIC": 1,
+    "SECRET_KEY": {
+      "description": "Django secret key",
+      "generator": "secret"
+    },
+    "SENTRY_DSN": "https://1ea2cda5f87f4c5ea84831d30effe03a@o328964.ingest.sentry.io/1843687"
+  },
+  "addons": ["heroku-postgresql:hobby-dev"],
+  "scripts": {
+    "postdeploy": "python manage.py loaddata apps/users/fixtures/users.json apps/book/fixtures/books.json apps/rent/fixtures/rents.json"
+  },
+  "environments": {
+    "test":{
+      "addons": [
+          "heroku-postgresql:hobby-dev"
+      ],
+      "scripts":{
+        "test-setup": "python manage.py collectstatic --noinput",
+        "test": "python manage.py test --settings=config.settings_ci"
+      }
+    }
+  }
+}
