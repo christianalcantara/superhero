@@ -6,6 +6,7 @@
   "logo": "https://i2.wp.com/www.opengis.ch/wp-content/uploads/2020/04/django-python-logo-e1588009010920.png?resize=100%2C100&ssl=1",
   "keywords": ["python", "django" ],
   "env": {
+    "GRAPHQL_ENDPOINT": "https://{projectname}.herokuapp.com/graphql",
     "DEBUG": "False",
     "DEBUG_COLLECTSTATIC": 1,
     "SECRET_KEY": {
