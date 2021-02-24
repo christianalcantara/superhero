@@ -8,11 +8,11 @@ Dango Graphql Backend
 Features
 --------
 
--   [12 Factor](http://12factor.net/)
--   [Django](https://www.djangoproject.com/)
--   [PostgreSQL](https://www.postgresql.org/)
--   [Graphql](https://graphql.org/)
--   [Apollo](https://www.apollographql.com/)
+- [12 Factor](http://12factor.net/)
+- [Django](https://www.djangoproject.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Graphql](https://graphql.org/)
+- [Apollo](https://www.apollographql.com/)
 
 Usage
 -----
@@ -36,22 +36,25 @@ Django:
 
 Django Admin URL:
 -----------------
- - [http://localhost:8000/admin](http://localhost:8000/admin)
- - [demo](https://superheroback.herokuapp.com/admin)
 
- `Username: super`
+- [http://localhost:8000/admin](http://localhost:8000/admin)
+- [demo](https://superheroback.herokuapp.com/admin)
 
- `Password: hero`
+`Username: super`
+
+`Password: hero`
 
 Graphql Playground:
 -------------------
- - [http://localhost:8000/graphql](http://localhost:8000/graphql)
- - [demo](https://superheroback.herokuapp.com/graphql)
+
+- [http://localhost:8000/graphql](http://localhost:8000/graphql)
+- [demo](https://superheroback.herokuapp.com/graphql)
 
 Frontend
 --------
- - [repository](https://github.com/christianalcantara/vue-graphql-frontend)
- - [demo](https://superherofront.herokuapp.com/)
+
+- [repository](https://github.com/christianalcantara/vue-graphql-frontend)
+- [demo](https://superherofront.herokuapp.com/)
 
 <p align="center">
   <img src="https://i.imgur.com/vgFIAaH.png" />

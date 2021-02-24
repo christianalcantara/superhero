@@ -57,7 +57,7 @@ media/
 
 # Collected staticfiles
 */staticfiles/
-
+*/public/
 .cache/
 **/certs
 
