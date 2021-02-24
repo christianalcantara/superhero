@@ -1,14 +1,9 @@
 import graphene
 
-from .character.query import CharacterQueries
 from .character.mutation import CharacterMutation
-from .users.mutation import (
-    AuthUserMutation,
-    CreateUserMutation
-)
-from .users.query import (
-    UserQuerys
-)
+from .character.query import CharacterQueries
+from .users.mutation import AuthUserMutation, CreateUserMutation
+from .users.query import UserQuerys
 
 
 class Query(CharacterQueries, UserQuerys):

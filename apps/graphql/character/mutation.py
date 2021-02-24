@@ -1,10 +1,18 @@
 import graphene
-from ...character.models import Character
-from .types import CharacterType
 from graphene_file_upload.scalars import Upload
+
+from .types import CharacterType
+from ...character.models import Character
 
 
 class CreateCharacter(graphene.Mutation):
+    """
+    Object Type Definition (mutation field)
+
+    Mutation is a convenience type that helps us build a Field which takes Arguments and returns a
+    mutation Output ObjectType.
+    """
+
     class Arguments:
         name = graphene.String(required=True)
         description = graphene.String()
@@ -13,10 +21,7 @@ class CreateCharacter(graphene.Mutation):
 
     @classmethod
     def mutate(cls, root, info, name, description=None):
-        character = Character(
-            name=name,
-            description=description
-        )
+        character = Character(name=name, description=description)
         character.save()
         return CreateCharacter(character=character)
 
@@ -33,7 +38,7 @@ class UpdateCharacter(graphene.Mutation):
     def mutate(cls, root, info, pk, name=None, description=None):
         character = Character.objects.get(id=pk)
         if not any([name, description]):
-            raise Exception('Argument name or description required.')
+            raise Exception("Argument name or description required.")
         if name:
             character.name = name
         if description:
@@ -50,9 +55,6 @@ class UploadMutation(graphene.Mutation):
     success = graphene.Boolean()
 
     def mutate(self, info, pk, file, **kwargs):
-        # do something with your file
-        print('UPLOAD', file)
-        print('UPLOAD', type(file))
         character = Character.objects.get(id=pk)
         character.thumbnail = file
         character.save()

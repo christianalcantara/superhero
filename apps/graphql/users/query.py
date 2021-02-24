@@ -1,6 +1,5 @@
 import graphene
 import graphql_jwt
-from graphql_jwt.decorators import login_required
 
 from .types import UserType
 
@@ -20,5 +19,5 @@ class UserQuerys(graphene.ObjectType):
     def resolve_me(self, info, **kwargs):
         user = info.context.user
         if not user.is_authenticated:
-            raise Exception('Authentication credentials were not provided')
+            raise Exception("Authentication credentials were not provided")
         return user

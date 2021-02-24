@@ -1,6 +1,6 @@
-from django.contrib.auth import get_user_model
 import graphene
 import graphql_jwt
+from django.contrib.auth import get_user_model
 
 from .types import UserType
 
