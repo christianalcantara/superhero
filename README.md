@@ -9,12 +9,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-
-[![Django Logo][django-logo]](https://book-backend-rest.herokuapp.com/)
-
+  <a href="https://github.com/christianalcantara/book_backend">
+    <img src="docs/images/django-logo.png" alt="Logo" height="80">
+  </a>
 </p>
-
-[![Product Name Screen Shot][product-screenshot]](https://book-backend-rest.herokuapp.com/)
 
 <h3 align="center">Django Graphql</h3>
 
