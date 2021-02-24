@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # THIRD PARTY APPS,
     "corsheaders",
     "graphene_django",
+    "graphql_playground",
     # APPS
     "apps.character.apps.CharacterConfig",
 ]
@@ -123,6 +124,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = Path.joinpath(BASE_DIR, "public", "media")
 
 # GRAPHQL
+GRAPHQL_ENDPOINT = env.str("GRAPHQL_ENDPOINT")
 GRAPHENE = {
     "SCHEMA": "apps.graphql.schema.schema",
     "MIDDLEWARE": [

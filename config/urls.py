@@ -5,10 +5,12 @@ from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
 from graphene_file_upload.django import FileUploadGraphQLView
 from graphql_jwt.decorators import jwt_cookie
+from graphql_playground.views import GraphQLPlaygroundView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", csrf_exempt(jwt_cookie(FileUploadGraphQLView.as_view(graphiql=True)))),
+    path("graphql", csrf_exempt(jwt_cookie(FileUploadGraphQLView.as_view(graphiql=True)))),
+    path('', GraphQLPlaygroundView.as_view(endpoint=settings.GRAPHQL_ENDPOINT)),
 ]
 
 if settings.DEBUG:
