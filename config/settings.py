@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'graphene_django',
     # APPS
-    'backend.character.apps.CharacterConfig'
+    'apps.character.apps.CharacterConfig'
 ]
 
 MIDDLEWARE = [
