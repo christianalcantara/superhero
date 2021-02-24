@@ -19,8 +19,8 @@
   <p align="center">
     A Django GraphQL API example with Django Graphene
     <br />
-    👽&nbsp;&nbsp;<a href="https://book-backend-rest.herokuapp.com/">Backend Demo</a>&nbsp;&nbsp;
-    👽&nbsp;&nbsp;<a href="https://book-backend-rest.herokuapp.com/">Frontend Demo</a>&nbsp;&nbsp;
+    👽&nbsp;&nbsp;<a href="https://superheroback.herokuapp.com/">Backend Demo</a>&nbsp;&nbsp;
+    👽&nbsp;&nbsp;<a href="https://superherofront.herokuapp.com/">Frontend Demo</a>&nbsp;&nbsp;
     <br />
     🐛&nbsp;&nbsp;<a href="https://github.com/christianalcantara/book_backend/issues">Report Bug</a>&nbsp;&nbsp;
     ✳&nbsp;&nbsp;<a href="https://github.com/christianalcantara/book_backend/issues">Request Feature</a>
@@ -42,11 +42,6 @@
     </li>
     <li>
       <a href="#usage">Usage</a>
-      <ul>
-        <li><a href="#authorization-token">Authorization Token</a></li>
-        <li><a href="#get-customers">Get Customers</a></li>
-        <li><a href="#get-books">Get Books</a></li>
-      </ul>
     </li>
     <li>
        <a href="#roadmap">Roadmap</a>
@@ -129,50 +124,151 @@ Use Heroku button to deploy
 
 ## Usage
 
-Clique [here](https://django.herokuapp.com/) to view complete API endpoints.
+Clique [here](https://superheroback.herokuapp.com/) to view complete demo.
 
 ### Authorization Token
 
 - curl
 
-```bash
-curl -X POST "https://book-backend-rest.herokuapp.com/api-token-auth/" -H "accept: application/json" -H "Content-Type: application/json" -H "X-CSRFToken: uoQy2P3gGWwG3jPtI9puLIazKmvGBnmd9KYUK6bopcUuAdyxYaY5YRJOs4s5d22N" -d "{ \"username\": \"admin@gmail.com\", \"password\": \"adminpassword\"}"
+```shell
+curl 'https://superheroback.herokuapp.com/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: https://superheroback.herokuapp.com' --data-binary '{"query":"# CREATE USER\nmutation CreateUser {\n  createUser(\n    email: \"admin@example.com\"\n    password: \"123\"\n    username: \"adminuser\"\n  ) {\n    user {\n      username\n      firstName\n    }\n  }\n}\n"}' --compressed
+```
+
+- Graphql
+
+```graphql
+# CREATE USER
+mutation CreateUser {
+  createUser(
+    email: "admin@example.com"
+    password: "123"
+    username: "adminuser"
+  ) {
+    user {
+      username
+      firstName
+    }
+  }
+}
 ```
 
 - Response
 
 ```json
 {
-  "token": "71b3e6c42f5305a2ee4a1a2b46631662ab12a83b"
+  "data": {
+    "createUser": {
+      "user": {
+        "username": "adminuser",
+        "firstName": ""
+      }
+    }
+  }
 }
 ```
 
-### Get Customers
+### Get Characters
 
-```bash
-curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/customers/' --header 'Authorization: Token 71b3e6c42f5305a2ee4a1a2b46631662ab12a83b'
+- curl
+
+```shell
+curl 'https://superheroback.herokuapp.com/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: https://superheroback.herokuapp.com' --data-binary '{"query":"query Characters {\n  characters {\n    edges {\n      node {\n        name\n        description\n        thumbUrl\n      }\n    }\n  }\n}"}' --compressed
+```
+
+- graphql
+
+```graphql
+query Characters {
+  characters {
+    edges {
+      node {
+        name
+        description
+        thumbUrl
+      }
+    }
+  }
+}
 ```
 
 <details>
 <summary>Response</summary>
 
 ```json
-{}
+{
+  "data": {
+    "characters": {
+      "edges": [
+        {
+          "node": {
+            "name": "Hantaro",
+            "description": "Hamtaro, conhecido no Japão como Trotting Hamtaro, é uma série japonesa de mangás e contos de fadas criada e ilustrada por Ritsuko Kawai",
+            "thumbUrl": "////superheroback.herokuapp.com/media/character/download_1.jpeg"
+          }
+        },
+        {
+          "node": {
+            "name": "Vision",
+            "description": "",
+            "thumbUrl": "////superheroback.herokuapp.com/media/character/013vis_ons_crd_01-1.jpg"
+          }
+        },
+        {
+          "node": {
+            "name": "Falcon",
+            "description": "",
+            "thumbUrl": "////superheroback.herokuapp.com/media/character/014fal_ons_crd_02.jpg"
+          }
+        }
+      ]
+    }
+  }
+}
 ```
 
 </details>
 
-### Get Characters
+### Create Characters
 
-```bash
-curl --location --request GET 'https://book-backend-rest.herokuapp.com/api/books'
+- curl
+
+```shell
+curl 'https://superheroback.herokuapp.com/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: https://superheroback.herokuapp.com' --data-binary '{"query":"mutation CreateCharacter {\n  createCharacter(\n    name: \"Loki\"\n    description: \"God of Mischief and brother to Thor, Loki’s tricks and schemes wreak havoc across the realms.\"\n  ) {\n    character {\n      id\n      created\n      name\n    }\n  }\n}\n"}' --compressed
 ```
 
-<details>
+- graphql
+
+```graphql
+mutation CreateCharacter {
+  createCharacter(
+    name: "Loki"
+    description: "God of Mischief and brother to Thor, Loki’s tricks and schemes wreak havoc across the realms."
+  ) {
+    character {
+      id
+      created
+      name
+    }
+  }
+}
+
+```
+
+<details open="open">
 <summary>Response</summary>
 
 ```json
-{}
+{
+  "data": {
+    "createCharacter": {
+      "character": {
+        "id": "4",
+        "created": "2021-02-24T07:19:24.881772+00:00",
+        "name": "Loki"
+      }
+    }
+  }
+}
 ```
 
 </details>

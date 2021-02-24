@@ -9,8 +9,10 @@ from graphql_playground.views import GraphQLPlaygroundView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("graphql", csrf_exempt(jwt_cookie(FileUploadGraphQLView.as_view(graphiql=True)))),
-    path('', GraphQLPlaygroundView.as_view(endpoint=settings.GRAPHQL_ENDPOINT)),
+    path(
+        "graphql", csrf_exempt(jwt_cookie(FileUploadGraphQLView.as_view(graphiql=True)))
+    ),
+    path("", GraphQLPlaygroundView.as_view(endpoint=settings.GRAPHQL_ENDPOINT)),
 ]
 
 if settings.DEBUG:

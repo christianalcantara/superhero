@@ -17,6 +17,7 @@ class UserQuerys(graphene.ObjectType):
     """
     Return logged user
     """
+
     me = graphene.Field(UserType)
 
     def resolve_me(self, info, **kwargs):

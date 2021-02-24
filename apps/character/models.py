@@ -55,4 +55,4 @@ class Favorite(models.Model):
         verbose_name_plural = _("Favorites")
 
     def __str__(self):
-        return f"{self.user.username} -> {self.character.name}"
+        return f"{self.user.name} -> {self.character.name}"
